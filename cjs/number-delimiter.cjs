@@ -266,5 +266,5 @@ module.exports.setDefaultDelimiter = setDefaultDelimiter;
 module.exports.setDefaultSeparator = setDefaultSeparator;
 
 module.exports.convertStringToDelimited = convertStringToDelimited;
-module.exports.convertStringToNumber = convertRawStringToNumber;
+module.exports.convertRawStringToNumber = convertRawStringToNumber;
 module.exports.delimitNumber = delimitNumber;
