@@ -1,10 +1,10 @@
 const OPTIONS = {
     DEFAULT_DELIMITER: ".",
-    DEFAULT_SEPARATOR: ",",
-    ERROR            : ""
+    DEFAULT_SEPARATOR: ","
 }
 
 const JAVASCRIPT_SEPARATOR = ".";
+const ERROR = "";
 
 const setDefaultDelimiter = function (char)
 {
