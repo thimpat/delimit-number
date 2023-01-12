@@ -6,7 +6,8 @@
   "scripts": {
     "test": "nyc mocha",
     "build:esm": "to-esm ./cjs/number-delimiter.cjs --output esm/",
-    "build:test": "to-esm ./test/*.cjs --output test/"
+    "build:test": "to-esm ./test/unit-test.cjs --output test/",
+    "build:all": "npm run build:esm && npm run build:test"
   },
   "keywords": [],
   "author": "",
