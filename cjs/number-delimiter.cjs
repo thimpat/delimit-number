@@ -122,10 +122,15 @@ const convertStringToDelimited = function (str, {
         if (str.indexOf(separator) > -1)
         {
             const arr = str.split(separator);
-            floaters = "" + arr[1];
+            let mantissa = arr[1];
             if (("" + Number(arr[1])).indexOf("E") === -1)
             {
-                floaters = "" + Number(arr[1]);
+                mantissa = Number(arr[1]);
+            }
+
+            if (mantissa)
+            {
+                floaters = "" + mantissa;
             }
             str = arr[0];
         }
