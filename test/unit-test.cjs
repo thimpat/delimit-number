@@ -6,7 +6,7 @@ const {delimitNumber, setDefaultDelimiter, setDefaultSeparator} = require("../cj
 /** to-esm-esm: end-remove **/
 
 /** to-esm-esm: add
-import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.mjs";
+import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.js";
  **/
 
 describe("From the module", () =>

@@ -9,7 +9,7 @@ const expect = chai.expect;
 
 
 
-import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.mjs";
+import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.js";
  
 
 describe("From the module", () =>
