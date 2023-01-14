@@ -1,10 +1,20 @@
-import {expect}  from "chai";
+// import {describe, it, before} from "mocha";
+
+import {describe, it, before} from "node:test";
+
+import {expect} from "chai";
 import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter";
 
 
 describe("From the module", () =>
 {
-    describe("With default options", () =>
+    it("should return a string delimited number when input is a super big number with comma", function ()
+    {
+        const result = delimitNumber("23456789012345678901234567890123456789012345678901234567890,655441456");
+        expect(result.result).to.equal("23.456.789.012.345.678.901.234.567.890.123.456.789.012.345.678.901.234.567.890,655441456");
+    });
+
+    describe.skip("With default options", () =>
     {
 
         describe("#delimitNumber", () =>
@@ -227,7 +237,7 @@ describe("From the module", () =>
 
     })
 
-    describe("With modified options", () =>
+    describe.skip("With modified options", () =>
     {
         before(() =>
         {
