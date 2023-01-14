@@ -2,24 +2,32 @@
   "name": "number-delimiter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./esm/number-delimiter.mjs",
   "scripts": {
     "test": "nyc mocha",
-    "build:esm": "to-esm ./cjs/number-delimiter.cjs --output esm/ --update-all",
+    "test:ts": "mocha --config test/config/.mocharc.json",
+    "build:dts": "tsc ./esm/number-delimiter.js --declaration --allowJs --emitDeclarationOnly --outDir .",
+    "build:esm": "to-esm ./cjs/number-delimiter.cjs --output esm/ --update-all --extension .js",
     "build:test": "to-esm ./test/unit-test.cjs --output test/",
-    "build:all": "npm run build:esm && npm run build:test"
+    "build:all": "npm run build:esm && npm run build:dts && npm run build:test"
   },
   "keywords": [],
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/chai": "^4.3.4",
+    "@types/mocha": "^10.0.1",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
-    "to-esm": "^2.26.5"
+    "to-esm": "^2.27.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
   },
   "exports": {
     "require": "./cjs/number-delimiter.cjs",
-    "import": "./esm/number-delimiter.mjs"
-  }
+    "import": "./esm/number-delimiter.js",
+    "types": "./number-delimiter.d.ts"
+  },
+  "typings": "./number-delimiter.d.ts"
 }
