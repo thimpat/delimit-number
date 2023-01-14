@@ -1,6 +1,6 @@
 {
   "name": "number-delimiter",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Format numbers with commas or dots",
   "main": "./esm/number-delimiter.mjs",
   "scripts": {
