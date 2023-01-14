@@ -6,11 +6,19 @@ const OPTIONS = {
 const JAVASCRIPT_SEPARATOR = ".";
 const ERROR = "";
 
+/**
+ * Set the default delimiter to separate groups of three places on the integer-part of the whole number
+ * @param {string} char
+ */
 const setDefaultDelimiter = function (char)
 {
     OPTIONS.DEFAULT_DELIMITER = char;
 };
 
+/**
+ * Set the default separator between the integer-part and the fractional-part (mantissa)
+ * @param char
+ */
 const setDefaultSeparator = function (char)
 {
     OPTIONS.DEFAULT_SEPARATOR = char;
@@ -187,7 +195,7 @@ const convertStringToDelimited = function (str, {
  * @param input
  * @param delimiter
  * @param separator
- * @returns {{result: string}|boolean|{result: string, floaters: string, sign: (string), numbers: *[]}}
+ * @returns {{result: string, floaters="": string, sign="": string, numbers: *[]}}}
  */
 const delimitNumber = function (input, {
     delimiter = OPTIONS.DEFAULT_DELIMITER,
@@ -257,14 +265,11 @@ const delimitNumber = function (input, {
     }
 
     return {
-        result: false
+        result: ""
     };
 };
 
 
 module.exports.setDefaultDelimiter = setDefaultDelimiter;
 module.exports.setDefaultSeparator = setDefaultSeparator;
-
-module.exports.convertStringToDelimited = convertStringToDelimited;
-module.exports.convertRawStringToNumber = convertRawStringToNumber;
 module.exports.delimitNumber = delimitNumber;
