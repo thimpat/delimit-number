@@ -105,7 +105,7 @@ const convertRawStringToNumber = function (input, {
  * @param str
  * @param delimiter
  * @param separator
- * @returns {{result: string, floaters: string, sign: string, numbers: *[]}}
+ * @returns {{result: string, floaters: string, sign: string, numbers: *[]}|{result: string, floaters: string, numbers: *[], sign: string}}
  */
 const convertStringToDelimited = function (str, {
     delimiter = OPTIONS.DEFAULT_DELIMITER,
@@ -122,10 +122,10 @@ const convertStringToDelimited = function (str, {
         if (str.indexOf(separator) > -1)
         {
             const arr = str.split(separator);
-            floaters = arr[1];
+            floaters = "" + arr[1];
             if (("" + Number(arr[1])).indexOf("E") === -1)
             {
-                floaters = Number(arr[1]);
+                floaters = "" + Number(arr[1]);
             }
             str = arr[0];
         }
@@ -195,7 +195,7 @@ const convertStringToDelimited = function (str, {
  * @param input
  * @param delimiter
  * @param separator
- * @returns {{result: string, floaters="": string, sign="": string, numbers: *[]}}}
+ * @returns {{result: string}|{result: string, floaters: string, sign: string, numbers: *[]}|{result: string, floaters: string, numbers: *[], sign: string}|{result: string, floaters: string, sign: (string), numbers: *[]}}
  */
 const delimitNumber = function (input, {
     delimiter = OPTIONS.DEFAULT_DELIMITER,
