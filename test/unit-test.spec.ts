@@ -1,9 +1,8 @@
-// import {describe, it, before} from "mocha";
-
-import {describe, it, before} from "node:test";
+import {describe, it, before} from "mocha";
+// import {describe, it, before} from "node:test";
 
 import {expect} from "chai";
-import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter";
+import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.mjs";
 
 
 describe("From the module", () =>
@@ -14,7 +13,7 @@ describe("From the module", () =>
         expect(result.result).to.equal("23.456.789.012.345.678.901.234.567.890.123.456.789.012.345.678.901.234.567.890,655441456");
     });
 
-    describe.skip("With default options", () =>
+    describe("With default options", () =>
     {
 
         describe("#delimitNumber", () =>
@@ -237,7 +236,7 @@ describe("From the module", () =>
 
     })
 
-    describe.skip("With modified options", () =>
+    describe("With modified options", () =>
     {
         before(() =>
         {

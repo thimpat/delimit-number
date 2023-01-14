@@ -6,17 +6,35 @@ const {delimitNumber, setDefaultDelimiter, setDefaultSeparator} = require("../cj
 /** to-esm-esm: end-remove **/
 
 /** to-esm-esm: add
-import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.js";
+import {delimitNumber, setDefaultDelimiter, setDefaultSeparator} from "../esm/number-delimiter.mjs";
  **/
 
-describe("From the module", () =>
+describe("From the .cjs module", () =>
 {
     describe("With default options", () =>
     {
 
         describe("#delimitNumber", () =>
         {
-            it("should return a string delimited number when input is a super big number with comma", function ()
+            it("should return a string delimited number when input is already formatted but with one period", function ()
+            {
+                const result = delimitNumber("12.345678,56");
+                expect(result.result).to.equal("12.345.678,56");
+            });
+
+            it("should return a string delimited number when input is already badly formatted", function ()
+            {
+                const result = delimitNumber("123.45678,56");
+                expect(result.result).to.equal("12.345.678,56");
+            });
+
+            it("should return a string delimited number when input is already very badly formatted", function ()
+            {
+                const result = delimitNumber("123.45.678,56");
+                expect(result.result).to.equal("12.345.678,56");
+            });
+
+           it("should return a string delimited number when input is a very big number with comma", function ()
             {
                 const result = delimitNumber("23456789012345678901234567890123456789012345678901234567890,655441456");
                 expect(result.result).to.equal("23.456.789.012.345.678.901.234.567.890.123.456.789.012.345.678.901.234.567.890,655441456");
