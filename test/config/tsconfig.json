@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    // to use export default in .d.ts files
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+//    "baseUrl": ".",
+//    "typeRoots": ["./types", "./node_modules/@types"],
+//    "module": "Node16",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+//    "rootDir": "esm",
+//    "skipLibCheck": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true,
+    "target": "ES2020",
+    // Generate d.ts files
+    "declaration": true,
+    // Only output d.ts files
+    "emitDeclarationOnly": false
+  },
+  "include": ["esm/**/*", "test/**/*.ts"],
+  "exclude": ["node_modules/"]
+}

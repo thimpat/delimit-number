@@ -1,0 +1,9 @@
+{
+  "extensions": ["ts"],
+  "require": [
+    "test/config/register.mjs"
+  ],
+  "spec": [
+    "test/**/*.spec.ts"
+  ]
+}
