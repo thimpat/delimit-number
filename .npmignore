@@ -76,3 +76,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 /test/
+/.to-esm.cjs
+/tsconfig.json
