@@ -1,6 +1,6 @@
-export function setDefaultDelimiter(char: string): void;
-export function setDefaultSeparator(char: any): void;
-export function delimitNumber(input: any, { delimiter, separator }?: {
+export declare function setDefaultDelimiter(char: string): void;
+export declare function setDefaultSeparator(char: any): void;
+export declare function delimitNumber(input: any, { delimiter, separator }?: {
     delimiter?: string;
     separator?: string;
 }): {
