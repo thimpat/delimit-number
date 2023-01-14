@@ -9,7 +9,7 @@
     "allowJs": true,
     "checkJs": false,
     "strict": false,
-    "types": ["...", "mocha", "node"],
+    "types": ["mocha", "node"],
     "typeRoots": ["./node_modules/@types"],
     // Generate d.ts files
     "declaration": true,
