@@ -37,6 +37,20 @@ const convertToFinalResult = function ({
     return result
 };
 
+/**
+ * Remove delimiters from integer part
+ * @param input
+ * @param delimiter
+ * @returns {string}
+ */
+const sanitizeInteger = function (input, {
+    delimiter = OPTIONS.DEFAULT_DELIMITER
+} = {})
+{
+    input = "" + input;
+    return input.replaceAll(delimiter, "");
+};
+
 const convertRawStringToNumber = function (input, {
     delimiter = OPTIONS.DEFAULT_DELIMITER,
     separator = OPTIONS.DEFAULT_SEPARATOR
@@ -86,11 +100,9 @@ const convertRawStringToNumber = function (input, {
             return {input, success: true};
         }
 
-        input = "" + input;
-        let arr = input.split(delimiter);
-        let str = arr.join("")
-        str = str.replace(separator, ".");
-        return {input: Number(str), success: true};
+        input = sanitizeInteger(input);
+        input = input.replace(separator, ".");
+        return {input: Number(input), success: true};
     }
     catch (e)
     {
@@ -105,7 +117,8 @@ const convertRawStringToNumber = function (input, {
  * @param str
  * @param delimiter
  * @param separator
- * @returns {{result: string, floaters: string, sign: string, numbers: *[]}|{result: string, floaters: string, numbers: *[], sign: string}}
+ * @returns {{result: string, floaters: string, sign: string, numbers: *[]}|{result: string, floaters: string, numbers:
+ *     *[], sign: string}}
  */
 const convertStringToDelimited = function (str, {
     delimiter = OPTIONS.DEFAULT_DELIMITER,
@@ -135,6 +148,7 @@ const convertStringToDelimited = function (str, {
             str = arr[0];
         }
 
+        str = sanitizeInteger(str);
         let arr = str.split("");
         const n = arr.length;
         let invalid = false;
@@ -200,7 +214,8 @@ const convertStringToDelimited = function (str, {
  * @param input
  * @param delimiter
  * @param separator
- * @returns {{result: string}|{result: string, floaters: string, sign: string, numbers: *[]}|{result: string, floaters: string, numbers: *[], sign: string}|{result: string, floaters: string, sign: (string), numbers: *[]}}
+ * @returns {{result: string}|{result: string, floaters: string, sign: string, numbers: *[]}|{result: string, floaters:
+ *     string, numbers: *[], sign: string}|{result: string, floaters: string, sign: (string), numbers: *[]}}
  */
 const delimitNumber = function (input, {
     delimiter = OPTIONS.DEFAULT_DELIMITER,
