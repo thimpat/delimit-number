@@ -3,13 +3,8 @@
     // to use export default in .d.ts files
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-//    "baseUrl": ".",
-//    "typeRoots": ["./types", "./node_modules/@types"],
-//    "module": "Node16",
     "moduleResolution": "node",
     "noImplicitAny": false,
-//    "rootDir": "esm",
-//    "skipLibCheck": true,
     "noEmit": true,
     "allowJs": true,
     "checkJs": true,
