@@ -2,12 +2,12 @@
   "name": "number-delimiter",
   "version": "1.0.0",
   "description": "",
-  "main": "./esm/number-delimiter.js",
+  "main": "./esm/number-delimiter.mjs",
   "scripts": {
     "test": "nyc mocha",
     "test:ts": "nyc mocha --config test/config/.mocharc.json",
     "test:all": "npm run test && npm run test:ts",
-    "build:dts": "tsc ./esm/number-delimiter.js --declaration --allowJs --emitDeclarationOnly --outDir .",
+    "build:dts": "tsc ./esm/number-delimiter.mjs --declaration --allowJs --emitDeclarationOnly --outDir .",
     "build:esm": "to-esm ./cjs/number-delimiter.cjs --output esm/ --update-all --extension .mjs",
     "build:test": "to-esm ./test/unit-test.cjs --output test/",
     "build:all": "npm run build:esm && npm run build:dts && npm run build:test"
